@@ -33,6 +33,8 @@
 #ifndef _AT91SAM9G20EK_H
 #define _AT91SAM9G20EK_H
 
+#define	CONFIG_SENSYS_APCC
+
 #define	CLK_MODE_DIV1
 #undef	CLK_MODE_DIV2
 #undef	CLK_MODE_DIV4
@@ -58,7 +60,11 @@
 
 #define PLL_LOCK_TIMEOUT	1000000
 
+#ifdef CONFIG_SENSYS_APCC
+#define PLLA_SETTINGS	0x20293F01
+#else
 #define PLLA_SETTINGS	0x202A3F01
+#endif
 #define PLLB_SETTINGS	0x10193F05
 
 /* Switch MCK on PLLA output PCK = PLLA/2 = 3 * MCK */
